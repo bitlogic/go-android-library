@@ -9,7 +9,10 @@ Originalmente, la primera imagen se tomó de [aquí](https://github.com/paulaolm
 Si se quiere desplegar de manera automática este ambiente de desarrollo, el usuario debe contar con VSCode (y Docker desktop). Al abrir este proyecto en dicho IDE, éste detectará la presencia de la carpeta [.devcontainer](https://github.com/bitlogic/go-android-library/tree/main/.devcontainer), en la cual se encuentra un archivo de configuración **.json**, que permite iniciar un contenedor con los Dockerfiles mencionados.
 
 #### IMPORTANTE ❗
-Además, si finalmente se quiere generar una imagen de 🐳 que contenga solamente el paquete generado, en ([ci/Dockerfile.library](https://github.com/bitlogic/go-android-library/blob/main/ci/Dockerfile.library)) se especifica como hacerlo (ver líneas comentadas!)
+Además, si finalmente se quiere generar una imagen de 🐳 que contenga solamente el paquete generado, en ([ci/Dockerfile.library](https://github.com/bitlogic/go-android-library/blob/main/ci/Dockerfile.library)) basta con descomentar las últimas líneas, y ejecutar:
+```
+  docker build -f ci/Dockerfile.library -t [some-tag] . 
+```
 
 ### 📦 Contenido del package 
 La carpeta [library](https://github.com/bitlogic/go-android-library/tree/main/library) contiene todo el código necesario. Se notará que se encuentra todo en una sóla carpeta, y _no_ porque sea un ejemplo, si no porque actualmente _gomobile_ no soporta del todo la importación de distintos paquetes (ver [aquí](https://github.com/golang/go/issues/39735) el issue asociado).
