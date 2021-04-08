@@ -1,0 +1,15 @@
+FROM bitlogicos/android-env as builder
+
+ENV GO111MODULE=auto
+COPY . src/
+ENV LIBRARY /home/gopher/src
+WORKDIR $LIBRARY
+RUN go get -u golang.org/x/mobile/cmd/gomobile
+RUN go get -u golang.org/x/mobile/cmd/gobind
+RUN gomobile bind -v --target=android ./library/
+
+# build a tinier image
+#WORKDIR /home
+#FROM alpine:latest
+#COPY --from=builder /home/gopher/library/library.aar .
+#COPY --from=builder /home/gopher/library/library-sources.jar .
