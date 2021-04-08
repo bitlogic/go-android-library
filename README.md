@@ -2,7 +2,7 @@
 
 Package de ejemplo para generar una librería que pueda integrarse con Android.
 
-### 💻 Ambiente de desarrollo necesario:
+### 💻 Ambiente de desarrollo necesario
 Para configurar el ambiente, se utilizaron dos imágenes de Docker distintas, una que provee los SDK de Android y el lenguaje Go en sí ([ci/Dockerfile.android](https://github.com/bitlogic/go-android-library/blob/main/ci/Dockerfile.android)), y otra que toma esta configuración y ajusta las variables de entorno necesarias para la compilación ([ci/Dockerfile.library](https://github.com/bitlogic/go-android-library/blob/main/ci/Dockerfile.library)).
 Originalmente, la primera imagen se tomó de [aquí](https://github.com/paulaolmedo/go4droid "go4droid"), y se adaptó a las necesidades del desarrollo (por ej., el Dockerfile aquí visto, no contiene gradle)
 
